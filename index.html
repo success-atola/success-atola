@@ -38,7 +38,6 @@
             border-bottom: 1px solid var(--border);
             z-index: 1000;
             backdrop-filter: blur(10px);
-            background-color: linear-gradient(135deg, var(--primary), var(--accent));
         }
 
         .nav-container {
@@ -99,45 +98,70 @@
             box-shadow: 0 10px 20px rgba(114, 44, 72, 0.3);
         }
 
-        /* Hero Section */
-        .hero {
-            margin-top: 90px;
-            min-height: calc(100vh - 90px);
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            align-items: center;
-            gap: 3rem;
-            padding: 4rem 2rem;
+        .container {
             max-width: 1200px;
-            margin-left: auto;
-            margin-right: auto;
+            margin: 0 auto;
+            padding: 0 2rem;
         }
 
-        .hero-content h1 {
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, rgba(114, 44, 72, 0.05), rgba(168, 48, 94, 0.05));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 600px;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            max-width: 1200px;
+        }
+
+        .hero-text h1 {
             font-size: 3.5rem;
             line-height: 1.2;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
             color: var(--text-dark);
         }
 
-        .hero-content h1 .highlight {
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        .hero-text .highlight {
+            color: var(--primary);
         }
 
-        .hero-content p {
-            font-size: 1.25rem;
+        .hero-text p {
+            font-size: 1.1rem;
             color: var(--text-light);
             margin-bottom: 2rem;
             line-height: 1.8;
         }
 
+        .badge-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-bottom: 2rem;
+        }
+
+        .badge-item {
+            background: white;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
         .hero-buttons {
             display: flex;
             gap: 1rem;
-            margin-bottom: 2rem;
+            flex-wrap: wrap;
         }
 
         .btn-primary {
@@ -151,31 +175,32 @@
             border: none;
             cursor: pointer;
             font-size: 1rem;
+            display: inline-block;
         }
 
         .btn-primary:hover {
             background: linear-gradient(135deg, var(--primary-dark), var(--primary));
             transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(114, 44, 72, 0.3);
+            box-shadow: 0 10px 20px rgba(114, 44, 72, 0.3);
         }
 
         .btn-secondary {
-            background: transparent;
+            background: white;
             color: var(--primary);
             padding: 1rem 2rem;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
-            border: 2px solid var(--primary);
             transition: all 0.3s;
+            border: 2px solid var(--primary);
             cursor: pointer;
             font-size: 1rem;
+            display: inline-block;
         }
 
         .btn-secondary:hover {
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            color: white;
-            border-color: transparent;
+            background: var(--light);
+            transform: translateY(-2px);
         }
 
         .hero-image {
@@ -183,107 +208,75 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            perspective: 1000px;
-        }
-
-        .hero-image-wrapper {
-            position: relative;
-            animation: float 3s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0px);
-            }
-            50% {
-                transform: translateY(-20px);
-            }
         }
 
         .hero-image img {
             max-width: 100%;
             height: auto;
             border-radius: 20px;
-            box-shadow: 0 30px 60px rgba(114, 44, 72, 0.25);
-            display: block;
-            object-fit: cover;
+            box-shadow: 0 20px 40px rgba(114, 44, 72, 0.2);
+            animation: float 3s ease-in-out infinite;
         }
 
-        .badge {
-            display: inline-block;
-            background: var(--light);
-            padding: 0.75rem 1.25rem;
-            border-radius: 50px;
-            font-size: 0.875rem;
-            color: var(--primary);
-            font-weight: 600;
-            margin-bottom: 1rem;
-            border: 1px solid var(--border);
-        }
-
-        .badge-list {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .badge-item {
-            display: inline-block;
-            background: var(--light);
-            padding: 0.5rem 1rem;
-            border-radius: 50px;
-            font-size: 0.875rem;
-            color: var(--primary);
-            font-weight: 600;
-            border: 1px solid var(--border);
-            width: fit-content;
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
         }
 
         /* Stats Section */
-        .stats {
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            color: white;
+        .stats-section {
             padding: 4rem 2rem;
-            margin: 4rem 0;
+            background: white;
         }
 
-        .stats-container {
-            max-width: 1200px;
-            margin: 0 auto;
+        .stats-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
-            text-align: center;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
-        .stat-item h3 {
+        .stat-card {
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, rgba(114, 44, 72, 0.1), rgba(168, 48, 94, 0.1));
+            border-radius: 15px;
+            border: 1px solid rgba(114, 44, 72, 0.2);
+        }
+
+        .stat-number {
             font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
             margin-bottom: 0.5rem;
         }
 
-        .stat-item p {
-            font-size: 1.1rem;
-            opacity: 0.9;
+        .stat-label {
+            font-size: 1rem;
+            color: var(--text-light);
+            font-weight: 500;
         }
 
         /* About Section */
-        .about {
+        .about-section {
             padding: 4rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
+            background: var(--light);
         }
 
         .about-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 3rem;
+            gap: 4rem;
             align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .about-text h2 {
             font-size: 2.5rem;
             margin-bottom: 1.5rem;
+            color: var(--text-dark);
         }
 
         .about-text p {
@@ -297,56 +290,83 @@
             max-width: 100%;
             height: auto;
             border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 20px 40px rgba(114, 44, 72, 0.2);
+        }
+
+        /* Video Section */
+        .video-section {
+            padding: 4rem 2rem;
+            background: white;
+        }
+
+        .video-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .video-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: var(--text-dark);
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(114, 44, 72, 0.2);
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 15px;
         }
 
         /* Impact Section */
-        .impact {
+        .impact-section {
             padding: 4rem 2rem;
+            background: linear-gradient(135deg, rgba(114, 44, 72, 0.05), rgba(168, 48, 94, 0.05));
+        }
+
+        .impact-content {
             max-width: 1200px;
             margin: 0 auto;
         }
 
-        .section-title {
+        .impact-content h2 {
             font-size: 2.5rem;
-            margin-bottom: 1rem;
-            text-align: center;
-        }
-
-        .section-subtitle {
-            text-align: center;
-            color: var(--text-light);
-            font-size: 1.1rem;
             margin-bottom: 3rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
+            color: var(--text-dark);
+            text-align: center;
         }
 
         .impact-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
-            margin-bottom: 3rem;
         }
 
         .impact-card {
-            background: var(--light);
+            background: white;
             padding: 2rem;
             border-radius: 15px;
-            border-left: 4px solid var(--primary);
-            transition: all 0.3s;
-        }
-
-        .impact-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-left: 5px solid var(--primary);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
         }
 
         .impact-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
             color: var(--primary);
-            margin-bottom: 0.5rem;
-            font-size: 1.5rem;
         }
 
         .impact-card p {
@@ -354,209 +374,12 @@
             line-height: 1.8;
         }
 
-        /* Experience Section */
-        .experience {
-            padding: 4rem 2rem;
-            background: var(--light);
-        }
-
-        .experience-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .experience-item {
-            background: white;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            border-radius: 15px;
-            border-left: 4px solid var(--accent);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-        }
-
-        .experience-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: start;
-            margin-bottom: 1rem;
-        }
-
-        .experience-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--text-dark);
-        }
-
-        .experience-company {
-            color: var(--primary);
-            font-weight: 600;
-        }
-
-        .experience-date {
-            color: var(--text-light);
-            font-size: 0.9rem;
-        }
-
-        .experience-description {
-            color: var(--text-light);
-            line-height: 1.8;
-            margin-bottom: 1rem;
-        }
-
-        .achievement-list {
-            list-style: none;
-            margin-top: 1rem;
-        }
-
-        .achievement-list li {
-            color: var(--text-light);
-            margin-bottom: 0.75rem;
-            padding-left: 1.5rem;
-            position: relative;
-        }
-
-        .achievement-list li:before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: var(--primary);
-            font-weight: bold;
-        }
-
-        /* Skills Section */
-        .skills {
-            padding: 4rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .skill-tag {
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            color: white;
-            padding: 1rem 1.5rem;
-            border-radius: 50px;
-            text-align: center;
-            font-weight: 600;
-            transition: all 0.3s;
-        }
-
-        .skill-tag:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 20px rgba(114, 44, 72, 0.2);
-        }
-
-        /* Tools Section */
-        .tools {
-            padding: 4rem 2rem;
-            background: var(--light);
-        }
-
-        .tools-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .tools-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .tool-card {
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s;
-        }
-
-        .tool-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .tool-image {
-            width: 100%;
-            height: 200px;
-            background: var(--light);
-            overflow: hidden;
-        }
-
-        .tool-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .tool-info {
-            padding: 1.5rem;
-        }
-
-        .tool-info h3 {
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-            font-size: 1.25rem;
-        }
-
-        .tool-info p {
-            color: var(--text-light);
-            font-size: 0.95rem;
-        }
-
-        /* Remote Work Section */
-        .remote-work {
-            background: linear-gradient(135deg, var(--secondary), var(--text-dark));
-            color: white;
-            padding: 4rem 2rem;
-            margin: 4rem 0;
-        }
-
-        .remote-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .remote-title {
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-            text-align: center;
-        }
-
-        .timezone-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            text-align: center;
-        }
-
-        .timezone-item {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 2rem;
-            border-radius: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .timezone-item h3 {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .timezone-item p {
-            opacity: 0.9;
-        }
-
         /* CTA Section */
         .cta-section {
             padding: 4rem 2rem;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
             text-align: center;
-            background: var(--light);
         }
 
         .cta-content {
@@ -566,74 +389,49 @@
 
         .cta-content h2 {
             font-size: 2.5rem;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
         }
 
         .cta-content p {
             font-size: 1.1rem;
-            color: var(--text-light);
             margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-buttons a {
+            background: white;
+            color: var(--primary);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .cta-buttons a:hover {
+            background: var(--light);
+            transform: translateY(-2px);
         }
 
         /* Footer */
         footer {
             background: var(--secondary);
             color: white;
-            padding: 2rem;
             text-align: center;
+            padding: 2rem;
+            font-size: 0.9rem;
         }
 
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .social-links a {
-            color: white;
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s;
-        }
-
-        .social-links a:hover {
-            color: var(--accent);
-        }
-
-        /* Responsive */
         @media (max-width: 768px) {
-            .hero {
-                grid-template-columns: 1fr;
-                margin-top: 100px;
-            }
-
-            .hero-content h1 {
-                font-size: 2.5rem;
-            }
-
-            .nav-links {
-                display: none;
-            }
-
-            .hero-buttons {
-                flex-direction: column;
-            }
-
-            .btn-primary, .btn-secondary {
-                width: 100%;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .stats-container {
+            .hero-content {
                 grid-template-columns: 1fr;
             }
 
@@ -641,8 +439,13 @@
                 grid-template-columns: 1fr;
             }
 
-            .tools-grid {
-                grid-template-columns: 1fr;
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.85rem;
             }
         }
     </style>
@@ -658,14 +461,8 @@
                 <li><a href="#about">About</a></li>
                 <li><a href="#video">Introductory Video</a></li>
                 <li><a href="#impact">Measurable Impact</a></li>
-                <li><a href="#experience">Professional Experience</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#tools">Tools & Platforms</a></li>
-                <li><a href="#case-studies">Case Studies</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#testimonials">Testimonials</a></li>
-                <li><a href="#faqs">FAQs</a></li>
                 <li><a href="#contact">Contact</a></li>
+                <li><a href="experience.html">Next</a></li>
             </ul>
             <a href="#contact" class="cta-button">Contact Me</a>
         </div>
@@ -674,296 +471,99 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <div class="badge-list">
-                <div class="badge-item">Customer Success Professional</div>
-                <div class="badge-item">Customer Support Manager</div>
-                <div class="badge-item">Technical Support</div>
-                <div class="badge-item">Customer Service Professional</div>
+            <div class="hero-text">
+                <div class="badge-list">
+                    <div class="badge-item">Customer Success Professional</div>
+                    <div class="badge-item">Customer Support Manager</div>
+                    <div class="badge-item">Technical Support</div>
+                    <div class="badge-item">Customer Service Professional</div>
+                </div>
+                <h1>Proven Results. Driving Retention & <span class="highlight">Satisfaction Remotely</span></h1>
+                <p>Customer Success Manager with 4+ years of experience driving measurable impact across US, UK, and Canada timezones. Promoted to Team Lead in 4 months. 95% CSAT. 500+ monthly conversions. 45% increase in conversion rates.</p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn-primary">I am The Next Team Member You Are Looking For</a>
+                    <a href="experience.html" class="btn-secondary">View My Experience</a>
+                </div>
             </div>
-            <h1>Proven Results. Driving Retention & <span class="highlight">Satisfaction Remotely</span></h1>
-            <p>Customer Success Manager with 4+ years of experience driving measurable impact across US, UK, and Canada timezones. Promoted to Team Lead in 4 months. 95% CSAT. 500+ monthly conversions. 45% increase in conversion rates.</p>
-            <div class="hero-buttons">
-                <a href="#contact" class="btn-primary">I am The Next Team Member You Are Looking For</a>
-                <a href="#experience" class="btn-secondary">View My Experience</a>
-            </div>
-        </div>
-        <div class="hero-image">
-            <div class="hero-image-wrapper">
-                <img src="public/images/hero-enhanced.png" alt="Success Atola - Customer Success Professional">
+            <div class="hero-image">
+                <img src="public/images/hero-enhanced.png" alt="Success Atola">
             </div>
         </div>
     </section>
 
     <!-- Stats Section -->
-    <section class="stats">
-        <div class="stats-container">
-            <div class="stat-item">
-                <h3>4+</h3>
-                <p>Years of Experience</p>
+    <section class="stats-section">
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number">4+</div>
+                <div class="stat-label">Years of Experience</div>
             </div>
-            <div class="stat-item">
-                <h3>95%</h3>
-                <p>Customer Satisfaction Rate</p>
+            <div class="stat-card">
+                <div class="stat-number">95%</div>
+                <div class="stat-label">Customer Satisfaction</div>
             </div>
-            <div class="stat-item">
-                <h3>500+</h3>
-                <p>Monthly Conversions</p>
+            <div class="stat-card">
+                <div class="stat-number">500+</div>
+                <div class="stat-label">Monthly Conversions</div>
             </div>
-            <div class="stat-item">
-                <h3>45%</h3>
-                <p>Increase in Conversion Rates</p>
+            <div class="stat-card">
+                <div class="stat-number">45%</div>
+                <div class="stat-label">Conversion Rate Growth</div>
             </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section class="about" id="about">
+    <section class="about-section" id="about">
         <div class="about-content">
             <div class="about-text">
                 <h2>About Me</h2>
-                <p>I'm a results-driven Customer Success professional with a proven track record of building and scaling customer relationships that drive revenue growth. My career is defined by measurable outcomes: turning customer satisfaction into business growth, reducing operational friction, and building teams that consistently exceed targets.</p>
-                <p>With expertise across Customer Success, Customer Support, Technical Support, and Sales Development, I bring a multi-disciplinary approach to customer engagement. I've successfully managed 1,000+ customers across multiple continents, consistently maintained 95%+ satisfaction rates, and proven my ability to lead teams to exceptional performance.</p>
-                <p>I work seamlessly across US, UK, and Canada timezones, bringing reliability, proactive communication, and a deep commitment to customer success to every role. My positioning isn't based on job titles—it's built on the tangible outcomes I've delivered.</p>
+                <p>I'm a Customer Success professional with a proven track record of driving measurable business outcomes. With 4+ years of remote work experience across US, UK, and Canada timezones, I've consistently delivered results that exceed expectations.</p>
+                <p>My expertise spans Customer Success, Support, Technical Support, and Customer Service. I'm not just about completing tasks—I focus on outcomes: increasing retention, improving satisfaction, and driving revenue growth.</p>
+                <p>I was promoted to Team Lead in just 4 months, demonstrating my ability to make an immediate impact and lead teams effectively. I'm ready to bring this same energy and results-driven mindset to your organization.</p>
             </div>
             <div class="about-image">
-                <img src="public/images/profile-enhanced.png" alt="Success Atola - Professional Portrait">
+                <img src="public/images/profile-enhanced.png" alt="Success Atola Professional Portrait">
             </div>
         </div>
     </section>
 
-    <!-- Impact Section -->
-    <section class="impact" id="impact">
-        <h2 class="section-title">Measurable Impact</h2>
-        <p class="section-subtitle">Real outcomes. Proven results. Here's what I've delivered:</p>
-        
-        <div class="impact-grid">
-            <div class="impact-card">
-                <h3>1,000+ Customers Served</h3>
-                <p>Built and managed relationships with over 1,000 customers across 5 African countries through live chat and video support, creating lasting partnerships that resulted in repeat business and referrals.</p>
-            </div>
-            <div class="impact-card">
-                <h3>30% Efficiency Gain</h3>
-                <p>Redesigned technical support workflows that cut customer follow-up requests by 30%, freeing up team capacity and allowing us to serve more customers with the same resources.</p>
-            </div>
-            <div class="impact-card">
-                <h3>45% Revenue Acceleration</h3>
-                <p>Implemented personalized customer guidance strategy that increased conversion rates by 45%, directly contributing to significant revenue growth and establishing a repeatable playbook for the team.</p>
-            </div>
-            <div class="impact-card">
-                <h3>20% Performance Overage</h3>
-                <p>Consistently exceeded weekly sales targets by 20%, setting new benchmarks for the team and generating additional revenue that contributed to company growth and team bonuses.</p>
-            </div>
-            <div class="impact-card">
-                <h3>40% Retention Improvement</h3>
-                <p>Transformed customer retention through strategic dashboard training and system support, achieving a 40% improvement in retention rates and increasing customer lifetime value.</p>
-            </div>
-            <div class="impact-card">
-                <h3>Promoted to Leadership</h3>
-                <p>Recognized for exceptional performance and promoted to Team Lead/Head of Business within 4 months—overseeing revenue strategies, team leadership, and business operations for the entire unit.</p>
-            </div>
+    <!-- Introductory Video Section -->
+    <section class="video-section" id="video">
+        <div class="video-content">
+            <h2>My Introduction</h2>
+            <p style="color: var(--text-light); margin-bottom: 2rem;">Coming soon - Your Loom video will be embedded here</p>
         </div>
     </section>
 
-    <!-- Experience Section -->
-    <section class="experience" id="experience">
-        <div class="experience-container">
-            <h2 class="section-title">Professional Experience</h2>
-            <p class="section-subtitle">Building teams, driving revenue, and delivering results</p>
-
-            <div class="experience-item">
-                <div class="experience-header">
-                    <div>
-                        <div class="experience-title">Customer Success Manager / Admissions and Enrollment Officer</div>
-                        <div class="experience-company">International Institute of Artificial Intelligence and Research (IIAR)</div>
-                    </div>
-                    <div class="experience-date">Sept 2023 - Oct 2025</div>
+    <!-- Measurable Impact Section -->
+    <section class="impact-section" id="impact">
+        <div class="impact-content">
+            <h2>Measurable Impact</h2>
+            <div class="impact-grid">
+                <div class="impact-card">
+                    <h3>1,000+ Clients Supported</h3>
+                    <p>Built and managed relationships with over 1,000 customers across multiple continents, ensuring consistent satisfaction and retention.</p>
                 </div>
-                <p class="experience-description">Promoted to Team Lead/Head of Business in just 4 months due to exceptional performance. Managed customer success operations, revenue strategies, and team leadership for the entire business unit.</p>
-                <ul class="achievement-list">
-                    <li>Built and managed relationships with 1,000+ customers across 5 African countries, generating repeat business and referrals</li>
-                    <li>Achieved and maintained 95% customer satisfaction score consistently across all customer segments</li>
-                    <li>Converted 500+ leads into customers monthly, establishing repeatable conversion processes</li>
-                    <li>Increased conversion rates by 45% through personalized customer guidance and proactive follow-ups</li>
-                    <li>Reduced technical support follow-ups by 30% through workflow optimization and customer education</li>
-                    <li>Developed and executed revenue-generating strategies that drove business growth</li>
-                    <li>Led cross-functional teams and resolved 95% of client escalations within 48 hours</li>
-                </ul>
-            </div>
-
-            <div class="experience-item">
-                <div class="experience-header">
-                    <div>
-                        <div class="experience-title">Technical Support Officer</div>
-                        <div class="experience-company">Tozhine Real Estate Ventures</div>
-                    </div>
-                    <div class="experience-date">Jan 2021 - July 2023</div>
+                <div class="impact-card">
+                    <h3>30% Reduction in Follow-ups</h3>
+                    <p>Implemented streamlined processes that cut customer follow-up requests by 30%, improving efficiency and customer experience.</p>
                 </div>
-                <p class="experience-description">Recognized as best sales representative for 3 consecutive months. Managed customer communications across multiple channels while exceeding performance targets and building strong customer relationships.</p>
-                <ul class="achievement-list">
-                    <li>Resolved 95% of customer issues on first contact, reducing resolution time and improving satisfaction</li>
-                    <li>Exceeded weekly sales targets by 20%, generating additional revenue and setting team benchmarks</li>
-                    <li>Improved customer retention by 40% through strategic system support and dashboard training</li>
-                    <li>Performed remote diagnostics to identify and resolve customer system issues efficiently</li>
-                    <li>Managed customer communications across calls, live chat, and email with consistent professionalism</li>
-                    <li>Recognized as top performer for 3 consecutive months for exceptional results</li>
-                </ul>
-            </div>
-
-            <div class="experience-item">
-                <div class="experience-header">
-                    <div>
-                        <div class="experience-title">Sales Development Representative</div>
-                        <div class="experience-company">Veristzon Global Holdings</div>
-                    </div>
-                    <div class="experience-date">2020 - 2021</div>
+                <div class="impact-card">
+                    <h3>45% Conversion Rate Growth</h3>
+                    <p>Increased conversion rates by 45% through strategic customer engagement and targeted support interventions.</p>
                 </div>
-                <p class="experience-description">Specialized in lead generation and pipeline development for B2B SaaS companies. Built strong prospecting skills and established processes for consistent lead qualification and conversion.</p>
-                <ul class="achievement-list">
-                    <li>Generated 150+ qualified leads monthly through targeted outreach, resulting in $500K+ pipeline value</li>
-                    <li>Achieved 35% conversion rate from outreach to qualified meetings, exceeding team average by 15%</li>
-                    <li>Built and maintained relationships with 200+ decision-makers and key stakeholders across target accounts</li>
-                    <li>Collaborated with sales teams to ensure 90% handoff conversion rate and smooth deal progression</li>
-                    <li>Developed prospecting templates and outreach strategies that improved response rates by 40%</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section class="skills" id="skills">
-        <h2 class="section-title">Skills</h2>
-        <p class="section-subtitle">Expertise that drives results</p>
-        
-        <div class="skills-grid">
-            <div class="skill-tag">Customer Success Management</div>
-            <div class="skill-tag">Customer Support</div>
-            <div class="skill-tag">Technical Support</div>
-            <div class="skill-tag">Customer Service</div>
-            <div class="skill-tag">SaaS Support</div>
-            <div class="skill-tag">Live Chat Support</div>
-            <div class="skill-tag">Salesforce</div>
-            <div class="skill-tag">Google Suite</div>
-            <div class="skill-tag">Technical Troubleshooting</div>
-            <div class="skill-tag">Process Education</div>
-            <div class="skill-tag">Team Leadership</div>
-            <div class="skill-tag">Revenue Strategy</div>
-            <div class="skill-tag">Client Acquisition</div>
-            <div class="skill-tag">Conflict Resolution</div>
-            <div class="skill-tag">CRM Management</div>
-            <div class="skill-tag">Remote Operations</div>
-            <div class="skill-tag">Performance Management</div>
-            <div class="skill-tag">Customer Retention</div>
-        </div>
-    </section>
-
-    <!-- Tools & Platforms Section -->
-    <section class="tools" id="tools">
-        <div class="tools-container">
-            <h2 class="section-title">Tools & Platforms I Master</h2>
-            <p class="section-subtitle">Proficient in industry-leading CRM, support, and collaboration tools</p>
-            
-            <div class="tools-grid">
-                <div class="tool-card">
-                    <div class="tool-image">
-                        <img src="public/images/hubspot-mockup.png" alt="HubSpot CRM">
-                    </div>
-                    <div class="tool-info">
-                        <h3>HubSpot</h3>
-                        <p>Customer relationship management, contact tracking, email automation, and customer engagement analytics.</p>
-                    </div>
+                <div class="impact-card">
+                    <h3>20% Sales Target Overage</h3>
+                    <p>Exceeded sales targets by 20%, demonstrating ability to drive revenue while maintaining customer satisfaction.</p>
                 </div>
-
-                <div class="tool-card">
-                    <div class="tool-image">
-                        <img src="public/images/zendesk-mockup.png" alt="Zendesk Support">
-                    </div>
-                    <div class="tool-info">
-                        <h3>Zendesk</h3>
-                        <p>Ticketing system, customer support management, and satisfaction tracking for multi-channel support.</p>
-                    </div>
+                <div class="impact-card">
+                    <h3>40% Retention Rate Improvement</h3>
+                    <p>Improved customer retention rates by 40% through proactive engagement and exceptional service delivery.</p>
                 </div>
-
-                <div class="tool-card">
-                    <div class="tool-image">
-                        <img src="public/images/zoho-mockup.png" alt="Zoho CRM">
-                    </div>
-                    <div class="tool-info">
-                        <h3>Zoho CRM</h3>
-                        <p>Sales pipeline management, customer data organization, and analytics for revenue optimization.</p>
-                    </div>
-                </div>
-
-                <div class="tool-card">
-                    <div class="tool-image">
-                        <img src="public/images/slack-mockup-new.png" alt="Slack">
-                    </div>
-                    <div class="tool-info">
-                        <h3>Slack</h3>
-                        <p>Team communication, customer support channels, and real-time collaboration across distributed teams.</p>
-                    </div>
-                </div>
-
-                <div class="tool-card">
-                    <div class="tool-image">
-                        <img src="public/images/notion-mockup.png" alt="Notion">
-                    </div>
-                    <div class="tool-info">
-                        <h3>Notion</h3>
-                        <p>Customer database management, task organization, and knowledge base creation for team efficiency.</p>
-                    </div>
-                </div>
-
-                <div class="tool-card">
-                    <div class="tool-image">
-                        <img src="public/images/teams-mockup.png" alt="Microsoft Teams">
-                    </div>
-                    <div class="tool-info">
-                        <h3>Microsoft Teams</h3>
-                        <p>Video conferencing, team collaboration, customer communication channels, and file sharing.</p>
-                    </div>
-                </div>
-
-                <div class="tool-card">
-                    <div class="tool-image">
-                        <img src="public/images/salesforce-mockup.png" alt="Salesforce">
-                    </div>
-                    <div class="tool-info">
-                        <h3>Salesforce</h3>
-                        <p>Enterprise CRM, sales pipeline management, customer account management, and performance analytics.</p>
-                    </div>
-                </div>
-
-                <div class="tool-card">
-                    <div class="tool-image">
-                        <img src="public/images/google-suite-mockup.png" alt="Google Suite">
-                    </div>
-                    <div class="tool-info">
-                        <h3>Google Suite</h3>
-                        <p>Sheets for data analysis, Docs for templates, and Calendar for customer meeting management.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Remote Work Section -->
-    <section class="remote-work" id="remote">
-        <div class="remote-container">
-            <h2 class="remote-title">Professional Remote Worker</h2>
-            <p class="section-subtitle" style="color: white; margin-bottom: 3rem;">4+ years of proven remote work experience across multiple continents and timezones</p>
-            
-            <div class="timezone-grid">
-                <div class="timezone-item">
-                    <h3>🇺🇸 US Timezones</h3>
-                    <p>EST, CST, MST, PST - Fully available for all US business hours with consistent reliability</p>
-                </div>
-                <div class="timezone-item">
-                    <h3>🇬🇧 UK Timezone</h3>
-                    <p>GMT - Seamless collaboration with UK-based teams and clients with proven track record</p>
-                </div>
-                <div class="timezone-item">
-                    <h3>🇨🇦 Canada Timezone</h3>
-                    <p>EST, CST, MST, PST - Full availability for Canadian operations with professional standards</p>
+                <div class="impact-card">
+                    <h3>Promoted to Team Lead in 4 Months</h3>
+                    <p>Recognized for exceptional performance and promoted to Team Lead position, leading a team of support specialists.</p>
                 </div>
             </div>
         </div>
@@ -974,63 +574,16 @@
         <div class="cta-content">
             <h2>Your Next Solution to Exceptional Customer Experience</h2>
             <p>I bring 4+ years of proven remote work experience, delivering measurable results across Customer Success, Support, and Sales Development. I'm ready to contribute immediately to your team with the skills, reliability, and customer-first mindset that drives business growth.</p>
-            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-                <a href="mailto:successatola@gmail.com" class="btn-primary">Contact Me Via Email</a>
-                <a href="https://wa.me/message/Q2KJASJ7FTBKN1" class="btn-primary" target="_blank">Contact Me Via WhatsApp</a>
+            <div class="cta-buttons">
+                <a href="mailto:successatola@gmail.com">Contact Me Via Email</a>
+                <a href="https://wa.me/message/Q2KJASJ7FTBKN1" target="_blank">Contact Me Via WhatsApp</a>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
-        <div class="footer-content">
-            <div class="social-links">
-                <a href="mailto:successatola@gmail.com">Email</a>
-                <a href="tel:+2348061703434">Phone</a>
-                <a href="#">LinkedIn</a>
-            </div>
-            <p>&copy; 2026 Success Atola. All rights reserved.</p>
-        </div>
+        <p>&copy; 2024 Success Atola. All rights reserved.</p>
     </footer>
 </body>
 </html>
-
-    <!-- Introductory Video Section -->
-    <section class="video-section" id="video">
-        <div class="container">
-            <h2>My Introduction</h2>
-            <p>Coming soon - Your Loom video will be embedded here</p>
-        </div>
-    </section>
-
-    <!-- Case Studies Section -->
-    <section class="case-studies-section" id="case-studies">
-        <div class="container">
-            <h2>Case Studies</h2>
-            <p>Coming soon - Your case studies will be displayed here</p>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section class="projects-section" id="projects">
-        <div class="container">
-            <h2>Projects</h2>
-            <p>Coming soon - Your projects will be showcased here</p>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section class="testimonials-section" id="testimonials">
-        <div class="container">
-            <h2>Testimonials</h2>
-            <p>Coming soon - Client and manager testimonials will appear here</p>
-        </div>
-    </section>
-
-    <!-- FAQs Section -->
-    <section class="faqs-section" id="faqs">
-        <div class="container">
-            <h2>Frequently Asked Questions</h2>
-            <p>Coming soon - FAQs will be displayed here</p>
-        </div>
-    </section>
