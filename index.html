@@ -374,6 +374,96 @@
             line-height: 1.8;
         }
 
+        /* Education Section */
+        #education {
+            padding: 4rem 2rem;
+            background: white;
+        }
+
+        .education-card {
+            display: flex;
+            gap: 2rem;
+            align-items: flex-start;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: linear-gradient(135deg, rgba(114, 44, 72, 0.05), rgba(168, 48, 94, 0.05));
+            border-radius: 15px;
+            border: 1px solid rgba(114, 44, 72, 0.1);
+        }
+
+        .education-icon {
+            font-size: 3rem;
+            min-width: 80px;
+            text-align: center;
+        }
+
+        .education-info h3 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .education-info .institution {
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+
+        .education-info .description {
+            color: var(--text-light);
+            line-height: 1.8;
+            font-size: 0.95rem;
+        }
+
+        /* Certifications Section */
+        #certifications {
+            padding: 4rem 2rem;
+            background: var(--light);
+        }
+
+        .certifications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .cert-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(114, 44, 72, 0.1);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .cert-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(114, 44, 72, 0.15);
+        }
+
+        .cert-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-bottom: 3px solid var(--primary);
+        }
+
+        .cert-card h3 {
+            color: var(--primary);
+            font-size: 1.2rem;
+            margin: 1.5rem 1rem 0.5rem 1rem;
+        }
+
+        .cert-card p {
+            color: var(--text-light);
+            margin: 0 1rem 1.5rem 1rem;
+            font-size: 0.9rem;
+        }
+
         /* CTA Section */
         .cta-section {
             padding: 4rem 2rem;
@@ -567,6 +657,45 @@
                 <div class="impact-card">
                     <h3>Promoted to Team Lead in 4 Months</h3>
                     <p>Recognized for exceptional performance and promoted to Team Lead position, leading a team of support specialists.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education">
+        <div class="section-content">
+            <h2>Education</h2>
+            <div class="education-card">
+                <div class="education-icon">🎓</div>
+                <div class="education-info">
+                    <h3>Bachelor of Science in Statistics</h3>
+                    <p class="institution">Federal University of Technology, Minna</p>
+                    <p class="description">Comprehensive training in statistical analysis, data interpretation, and quantitative research methods. This foundation supports my ability to analyze customer data, identify trends, and make data-driven decisions in customer success and support operations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certification Section -->
+    <section id="certifications">
+        <div class="section-content">
+            <h2>Certifications</h2>
+            <div class="certifications-grid">
+                <div class="cert-card">
+                    <img src="/public/images/cert-alx.png" alt="ALX Virtual Assistant Certification">
+                    <h3>Virtual Assistant Certification</h3>
+                    <p>ALX</p>
+                </div>
+                <div class="cert-card">
+                    <img src="/public/images/cert-dakins.pdf" alt="Dakins Customer Service Certification">
+                    <h3>Customer Service Certification</h3>
+                    <p>Dakins</p>
+                </div>
+                <div class="cert-card">
+                    <img src="/public/images/cert-tsg.webp" alt="TSG Academy Sales Course Certificate">
+                    <h3>Online Sales Bootcamp</h3>
+                    <p>TSG Academy (The Sales Guru)</p>
                 </div>
             </div>
         </div>
