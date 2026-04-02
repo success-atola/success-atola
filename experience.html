@@ -238,6 +238,69 @@
             margin-bottom: 1rem;
         }
 
+        /* Project Cards */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .project-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(114, 44, 72, 0.08);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(114, 44, 72, 0.1);
+        }
+
+        .project-card:hover {
+            box-shadow: 0 8px 25px rgba(114, 44, 72, 0.15);
+            transform: translateY(-5px);
+        }
+
+        /* Testimonials Grid */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(114, 44, 72, 0.08);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(114, 44, 72, 0.1);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .testimonial-card:hover {
+            box-shadow: 0 8px 25px rgba(114, 44, 72, 0.15);
+            transform: translateY(-5px);
+        }
+
+        .testimonial-quote {
+            flex: 1;
+            margin-bottom: 1.5rem;
+        }
+
+        .testimonial-quote p {
+            color: var(--text-dark);
+            line-height: 1.8;
+            font-size: 0.95rem;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            border-top: 2px solid rgba(114, 44, 72, 0.1);
+            padding-top: 1rem;
+        }
+
         /* Case Studies Section */
         .case-study {
             background: var(--light);
@@ -762,8 +825,75 @@
     <!-- Projects Section -->
     <section id="projects">
         <div class="section-content">
-            <h2>Projects</h2>
-            <p style="color: var(--text-light); margin-bottom: 2rem;">Coming soon - Your projects will be displayed here</p>
+            <h2>Featured Projects</h2>
+            <div class="project-container">
+                <div class="project-main">
+                    <h3 style="color: var(--primary); margin-bottom: 1rem; font-size: 1.3rem;">Automating Customer Outreach & Follow-Up at Scale</h3>
+                    <p style="color: var(--text-light); margin-bottom: 1.5rem; line-height: 1.8;">I built a structured email automation system to handle large-scale customer outreach while maintaining personalization and delivery control to eliminate manual sending, reduce errors, and improve follow-up consistency across 2000+ prospects.</p>
+                </div>
+                
+                <div class="project-grid">
+                    <div class="project-card">
+                        <h4 style="color: var(--primary); margin-bottom: 0.75rem; font-weight: 600;">Problem</h4>
+                        <ul style="list-style: disc; padding-left: 1.5rem; font-size: 0.9rem; line-height: 1.6; color: var(--text-light);">
+                            <li>Manual email outreach was time-consuming</li>
+                            <li>Prone to duplication and errors</li>
+                            <li>Difficult to track across hundreds of contacts</li>
+                            <li>Inefficient for follow-ups</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="project-card">
+                        <h4 style="color: var(--primary); margin-bottom: 0.75rem; font-weight: 600;">Solution</h4>
+                        <ul style="list-style: disc; padding-left: 1.5rem; font-size: 0.9rem; line-height: 1.6; color: var(--text-light);">
+                            <li>Google Sheets for contact management</li>
+                            <li>Google Apps Script for automation logic</li>
+                            <li>Google Docs for dynamic email content</li>
+                            <li>Gmail integration for sending</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="project-card">
+                        <h4 style="color: var(--primary); margin-bottom: 0.75rem; font-weight: 600;">My Role</h4>
+                        <ul style="list-style: disc; padding-left: 1.5rem; font-size: 0.9rem; line-height: 1.6; color: var(--text-light);">
+                            <li>Designed the system architecture</li>
+                            <li>Wrote and implemented Apps Script logic</li>
+                            <li>Structured data workflow in Google Sheets</li>
+                            <li>Tested and optimized delivery performance</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="project-card">
+                        <h4 style="color: var(--primary); margin-bottom: 0.75rem; font-weight: 600;">Tools Used</h4>
+                        <ul style="list-style: disc; padding-left: 1.5rem; font-size: 0.9rem; line-height: 1.6; color: var(--text-light);">
+                            <li>Google Sheets</li>
+                            <li>Google Apps Script</li>
+                            <li>Gmail</li>
+                            <li>Google Docs</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="project-card">
+                        <h4 style="color: var(--primary); margin-bottom: 0.75rem; font-weight: 600;">Skills Applied</h4>
+                        <ul style="list-style: disc; padding-left: 1.5rem; font-size: 0.9rem; line-height: 1.6; color: var(--text-light);">
+                            <li>Process automation</li>
+                            <li>Problem-solving</li>
+                            <li>Attention to detail</li>
+                            <li>Email marketing</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="project-card">
+                        <h4 style="color: var(--primary); margin-bottom: 0.75rem; font-weight: 600;">Impact</h4>
+                        <ul style="list-style: disc; padding-left: 1.5rem; font-size: 0.9rem; line-height: 1.6; color: var(--text-light);">
+                            <li><strong>900+ customers</strong> managed</li>
+                            <li><strong>100% elimination</strong> of duplicate emails</li>
+                            <li><strong>70%+ reduction</strong> in manual workload</li>
+                            <li><strong>Improved consistency</strong> in follow-ups</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -771,7 +901,47 @@
     <section id="testimonials">
         <div class="section-content">
             <h2>Testimonials</h2>
-            <p style="color: var(--text-light); margin-bottom: 2rem;">Coming soon - Client and manager testimonials will appear here</p>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-quote">
+                        <p>"Working with Success was a refreshing experience. She is incredibly polite, professional, and intentional with her communication. Every message she sent was clear and engaging; I always found myself reading through because of how well she presents information. Her approach to marketing and client engagement is truly impressive."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <p style="font-weight: 600; color: var(--primary);">Madam Rebecca</p>
+                        <p style="font-size: 0.85rem; color: var(--text-light);">Lawyer & Midwife, South Africa</p>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-quote">
+                        <p>"Success is very patient and easy to communicate with. She takes her time to explain things clearly and makes you feel comfortable throughout the process. Her sincerity stands out, and you can tell she genuinely wants to help. The support I received was excellent."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <p style="font-weight: 600; color: var(--primary);">Ibrahim Abba</p>
+                        <p style="font-size: 0.85rem; color: var(--text-light);">Lecturer, International University Of Debrecen, Hungary</p>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-quote">
+                        <p>"What stood out the most was her consistency and professionalism. She doesn't just respond, she follows up, ensures you understand, and stays engaged until everything is resolved. That level of support is rare."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <p style="font-weight: 600; color: var(--primary);">Sokenu Peter</p>
+                        <p style="font-size: 0.85rem; color: var(--text-light);">Business Executive, Mishel Homes</p>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-quote">
+                        <p>"I appreciated how transparent and responsive she was. You always know what's happening, and you don't feel left in the dark. It made the entire experience smooth and stress-free."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <p style="font-weight: 600; color: var(--primary);">Dr Ebenezer Godwin</p>
+                        <p style="font-size: 0.85rem; color: var(--text-light);">PhD Student, University of PortHarcourt</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
