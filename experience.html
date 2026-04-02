@@ -377,24 +377,79 @@
         }
 
         /* FAQs Section */
+        .faq-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
         .faq-item {
-            background: var(--light);
-            padding: 2rem;
-            margin-bottom: 1.5rem;
-            border-radius: 15px;
-            border-left: 5px solid var(--primary);
-        }
-
-        .faq-item h3 {
-            font-size: 1.2rem;
-            color: var(--primary);
+            background: white;
             margin-bottom: 1rem;
-            cursor: pointer;
+            border-radius: 10px;
+            border: 1px solid rgba(114, 44, 72, 0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
         }
 
-        .faq-item p {
-            color: var(--text-light);
+        .faq-item:hover {
+            box-shadow: 0 4px 15px rgba(114, 44, 72, 0.08);
+            border-color: rgba(114, 44, 72, 0.2);
+        }
+
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem;
+            cursor: pointer;
+            user-select: none;
+            background: white;
+            border: none;
+            width: 100%;
+            text-align: left;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--primary);
+            transition: all 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background: rgba(114, 44, 72, 0.02);
+            color: var(--accent);
+        }
+
+        .faq-question.active {
+            background: rgba(114, 44, 72, 0.05);
+            color: var(--accent);
+        }
+
+        .faq-toggle {
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+            color: var(--primary);
+        }
+
+        .faq-question.active .faq-toggle {
+            transform: rotate(180deg);
+            color: var(--accent);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            background: rgba(114, 44, 72, 0.02);
+        }
+
+        .faq-answer.active {
+            max-height: 500px;
+            padding: 0 1.5rem 1.5rem 1.5rem;
+        }
+
+        .faq-answer p {
+            color: var(--text-dark);
             line-height: 1.8;
+            font-size: 0.95rem;
         }
 
         /* Alternating Backgrounds */
@@ -949,9 +1004,119 @@
     <section id="faqs">
         <div class="section-content">
             <h2>Frequently Asked Questions</h2>
-            <p style="color: var(--text-light); margin-bottom: 2rem;">Coming soon - FAQs will be displayed here</p>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        <span>Can you handle high-volume customer interactions without dropping quality?</span>
+                        <span class="faq-toggle">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes. I've consistently managed 50–100+ daily conversations across chat, email, and calls while maintaining 95%+ customer satisfaction (CSAT). I work with structured workflows that ensure speed, clarity, and consistency at scale.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        <span>Do you have experience supporting international customers?</span>
+                        <span class="faq-toggle">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes. I've worked with customers across Nigeria, Ghana, Kenya, and South Africa, United Kingdom, and the United States adapting communication to different needs and expectations.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        <span>What tools and systems are you experienced with?</span>
+                        <span class="faq-toggle">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>I work with HubSpot and Zoho (CRM), Zendesk (ticketing), and dialers like Aircall, Convoso, and Primo Dialer. I also use Google Workspace, Slack, and Microsoft Teams for communication and collaboration.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        <span>How do you handle difficult or escalated customers?</span>
+                        <span class="faq-toggle">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>I focus on understanding the issue first, acknowledging the concern, and taking ownership. I communicate clearly to my clients, provide timelines, and follow through until the issue is fully resolved. This approach has helped me retain customers and prevent churn in critical situations.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        <span>How do you contribute to customer retention and engagement?</span>
+                        <span class="faq-toggle">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>I work proactively through follow-ups, clear onboarding, and consistent communication. I ensure customers don't feel lost after purchase and remain engaged throughout their journey. I've helped improve retention and reduce drop-offs, while keeping customers actively engaged.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        <span>What do you bring to the table?</span>
+                        <span class="faq-toggle">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>I bring a combination of customer support, data analysis and operational thinking. I have proven ability to improve conversion (up to 45%) and retention. I have strong system-building skills (e.g., automating outreach for 900+ users) and I have the ability to balance customer experience with business outcomes. I am a team player.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        <span>Why should we hire you?</span>
+                        <span class="faq-toggle">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>You don't just need support for your customers. You need someone that buys into your vision and mission statement and someone who can elevate your customers experience. I bring: Consistency, Ownership, Dedication, Structure and Impact that contributes to retention and revenue. If you're looking for someone who can support customers, improve processes, and contribute to growth, I'm a strong fit.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        <span>Are you comfortable working remotely and across time zones?</span>
+                        <span class="faq-toggle">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes. I'm experienced working remotely and supporting customers across US, UK, and Canada time zones, with clear communication and fast response turnaround.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        <span>Are you open to full-time remote roles?</span>
+                        <span class="faq-toggle">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes. I'm open to full-time remote Customer Success, Customer Support and Sales Development roles.</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
+
+    <script>
+        function toggleFAQ(button) {
+            const faqItem = button.parentElement;
+            const answer = faqItem.querySelector('.faq-answer');
+            const isActive = button.classList.contains('active');
+            
+            // Close all other FAQs
+            document.querySelectorAll('.faq-question').forEach(q => {
+                if (q !== button) {
+                    q.classList.remove('active');
+                    q.parentElement.querySelector('.faq-answer').classList.remove('active');
+                }
+            });
+            
+            // Toggle current FAQ
+            button.classList.toggle('active');
+            answer.classList.toggle('active');
+        }
+    </script>
 
     <!-- Footer -->
     <footer>
